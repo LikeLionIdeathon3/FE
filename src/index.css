@@ -1,0 +1,598 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --teal: #0D9488;
+  --teal-light: #F0FDFA;
+  --teal-dark: #0F766E;
+  --red: #F04438;
+  --red-light: #FEF3F2;
+  --amber: #F79009;
+  --amber-light: #FFFAEB;
+  --blue: #2E90FA;
+  --blue-light: #EFF8FF;
+  --ink: #101828;
+  --ink2: #344054;
+  --ink3: #667085;
+  --ink4: #98A2B3;
+  --border: #E4E7EC;
+  --bg: #F9FAFB;
+  --white: #FFFFFF;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #EEF0F4;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#root {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── App Header ── */
+.app-hdr {
+  padding: 12px 16px;
+  background: white;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.app-logo {
+  font-family: 'Syne', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--ink);
+}
+.app-logo span { color: var(--teal); }
+.hdr-icons { display: flex; gap: 8px; }
+.hdr-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.hdr-back {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--ink2);
+}
+.hdr-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.hdr-placeholder { width: 32px; }
+
+/* ── App Body ── */
+.app-body {
+  padding: 14px 16px 80px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  overflow-y: auto;
+}
+
+/* ── Search Bar ── */
+.search-bar {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--ink4);
+  cursor: text;
+}
+.search-bar input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.search-bar input::placeholder { color: var(--ink4); }
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  color: var(--teal);
+}
+
+/* ── Section Label ── */
+.sec {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink4);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ── 2-Col Quick Buttons ── */
+.g2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+.qb {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.qb:hover { background: var(--bg); }
+.qb p {
+  font-size: 11px;
+  color: var(--ink2);
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+/* ── List Item ── */
+.li {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.li-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.li-sub {
+  font-size: 10px;
+  color: var(--ink4);
+  margin-top: 2px;
+}
+
+/* ── Badges ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.b-ok    { background: var(--teal-light); color: var(--teal-dark); border: 1px solid #99F6E4; }
+.b-danger{ background: var(--red-light);  color: #B42318;           border: 1px solid #FECDCA; }
+.b-warn  { background: var(--amber-light);color: #B54708;           border: 1px solid #FEDF89; }
+.b-info  { background: var(--blue-light); color: #175CD3;           border: 1px solid #B2DDFF; }
+.b-gray  { background: #F2F4F7;           color: var(--ink3);        border: 1px solid var(--border); }
+
+/* ── Alert Cards ── */
+.alert-card {
+  border-radius: 12px;
+  padding: 12px 14px;
+  border: 1px solid;
+}
+.alert-danger { background: var(--red-light);   border-color: #FECDCA; }
+.alert-warn   { background: var(--amber-light); border-color: #FEDF89; }
+.alert-ok     { background: var(--teal-light);  border-color: #99F6E4; }
+
+.alert-title {
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.alert-danger .alert-title { color: #B42318; }
+.alert-warn   .alert-title { color: #B54708; }
+.alert-ok     .alert-title { color: var(--teal-dark); }
+
+.alert-body { font-size: 10px; line-height: 1.5; }
+.alert-danger .alert-body { color: #912018; }
+.alert-warn   .alert-body { color: #93370D; }
+.alert-ok     .alert-body { color: var(--teal-dark); }
+
+/* ── Info Card ── */
+.info-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+}
+.info-key  { font-size: 11px; color: var(--ink3); }
+.info-val  { font-size: 12px; font-weight: 500; color: var(--ink); }
+.info-val-danger { font-size: 12px; font-weight: 500; color: #B42318; }
+.info-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 5px 0;
+}
+
+.prod-name { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+.source-tag { font-size: 10px; color: var(--ink4); margin-top: 5px; }
+
+/* ── Progress Items (Scan page) ── */
+.prog-item { margin-bottom: 10px; }
+.prog-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4px;
+}
+.prog-name { font-size: 12px; font-weight: 500; color: var(--ink); }
+.prog-sub  { font-size: 10px; color: var(--ink4); }
+.prog-bar  { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.prog-fill { height: 100%; border-radius: 3px; }
+.prog-meta { font-size: 10px; color: var(--ink4); margin-top: 3px; }
+
+/* ── Flag Card ── */
+.flag {
+  background: var(--red-light);
+  border: 1px solid #FECDCA;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.flag-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #B42318;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 4px;
+}
+.flag-body { font-size: 10px; color: #912018; line-height: 1.4; }
+
+/* ── Ghost Button ── */
+.ghost-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 14px;
+  font-size: 11px;
+  color: var(--ink3);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.ghost-btn:hover { background: var(--bg); }
+
+/* ── Primary Button ── */
+.primary-btn {
+  background: var(--teal);
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.primary-btn:hover { background: var(--teal-dark); }
+.primary-btn:disabled { background: var(--ink4); cursor: not-allowed; }
+
+/* ── Recall Card ── */
+.recall-card {
+  background: var(--red-light);
+  border: 1.5px solid #F97066;
+  border-radius: 14px;
+  padding: 13px 15px;
+}
+.recall-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #B42318;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 9px;
+}
+
+/* ── Tab Bar ── */
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 14px;
+  border-top: 1px solid var(--border);
+  background: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 390px;
+  z-index: 10;
+}
+.tab {
+  font-size: 10px;
+  color: var(--ink4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 0 12px;
+  background: none;
+  border: none;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.tab.on { color: var(--teal); }
+.tab:hover { color: var(--ink2); }
+.tab.on:hover { color: var(--teal-dark); }
+
+/* ── SVG icon helper ── */
+svg.ic {
+  display: inline-block;
+  vertical-align: middle;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ── SVG 아이콘 색상 필터 ── */
+.icon { display: block; }
+.icon-teal   { filter: invert(44%) sepia(97%) saturate(360%) hue-rotate(141deg) brightness(88%) contrast(96%); }
+.icon-gray   { filter: invert(71%) sepia(10%) saturate(320%) hue-rotate(178deg) brightness(97%) contrast(87%); }
+.icon-amber  { filter: invert(62%) sepia(80%) saturate(700%) hue-rotate(5deg) brightness(105%) contrast(97%); }
+.icon-blue   { filter: invert(48%) sepia(80%) saturate(900%) hue-rotate(198deg) brightness(108%) contrast(96%); }
+.icon-red    { filter: invert(25%) sepia(80%) saturate(900%) hue-rotate(340deg) brightness(90%) contrast(95%); }
+.icon-ink2   { filter: invert(26%) sepia(12%) saturate(560%) hue-rotate(182deg) brightness(87%) contrast(90%); }
+
+/* ── 랜딩 페이지 ── */
+.landing {
+  min-height: 100vh;
+  background: #EEF0F4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 28px 40px;
+  text-align: center;
+}
+.landing-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-top: 36px;
+  margin-bottom: 20px;
+  border: 1px solid #99F6E4;
+}
+.landing h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+.landing h1 em { color: var(--teal); font-style: normal; }
+.landing-desc {
+  font-size: 14px;
+  color: var(--ink3);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 300px;
+}
+.landing-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.feat-pill {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--ink2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.feat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+.landing-cta {
+  background: var(--teal);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  padding: 16px 48px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+  width: 100%;
+  max-width: 320px;
+}
+.landing-cta:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.landing-cta:active { transform: translateY(0); }
+
+/* ── 프로필 페이지 ── */
+.profile-section { margin-bottom: 4px; }
+.profile-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink3);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.profile-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.profile-input:focus { border-color: var(--teal); }
+.toggle-group { display: flex; gap: 8px; }
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink3);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.toggle-btn.active {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+.option-group { display: flex; flex-direction: column; gap: 6px; }
+.option-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  color: var(--ink3);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s;
+}
+.option-btn.active {
+  border-color: var(--teal);
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+.save-success {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--teal-light);
+  border: 1px solid #99F6E4;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--teal-dark);
+  font-weight: 500;
+}
+
+/* ── 로딩 spinner ── */
+.spinner {
+  width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+
+/* ── Not found state ── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 20px;
+  text-align: center;
+}
+.empty-state p { font-size: 13px; color: var(--ink3); line-height: 1.6; }
+.empty-state strong { color: var(--ink); }
+
+/* ── Camera viewfinder (Scan mockup) ── */
+.camera-view {
+  background: #1a1a2e;
+  border-radius: 16px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.camera-view::before {
+  content: '';
+  position: absolute;
+  inset: 16px;
+  border: 2px solid rgba(13,148,136,0.6);
+  border-radius: 8px;
+}
+.camera-view p { font-size: 11px; color: rgba(255,255,255,0.6); z-index: 1; }

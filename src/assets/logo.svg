@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+  <!-- 배경 -->
+  <rect width="36" height="36" rx="10" fill="#0D9488"/>
+
+  <!-- 알약 클리핑 마스크 -->
+  <clipPath id="pill">
+    <rect x="6" y="13" width="24" height="11" rx="5.5"/>
+  </clipPath>
+
+  <!-- 좌측 절반 (불투명 흰색) -->
+  <rect x="6" y="13" width="12" height="11" fill="white" clip-path="url(#pill)"/>
+
+  <!-- 우측 절반 (반투명 흰색) -->
+  <rect x="18" y="13" width="12" height="11" fill="rgba(255,255,255,0.4)" clip-path="url(#pill)"/>
+
+  <!-- 중앙 구분선 -->
+  <line x1="18" y1="13" x2="18" y2="24" stroke="#0D9488" stroke-width="1.2"/>
+
+  <!-- 테두리 -->
+  <rect x="6" y="13" width="24" height="11" rx="5.5" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="0.8"/>
+</svg>
