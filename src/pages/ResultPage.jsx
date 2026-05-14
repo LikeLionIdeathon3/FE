@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
+import { arrowLeftIcon, alertIcon } from '../assets/icons';
 
 function getStatus(data) {
   if (!data || data.notFound) return 'notfound';
@@ -58,7 +59,7 @@ export default function ResultPage() {
       {/* 헤더 */}
       <div className="app-hdr">
         <button className="hdr-back" onClick={() => navigate(-1)}>
-          <img src="/src/assets/icons/arrow-left.svg" width="20" height="20"
+          <img src={arrowLeftIcon} width="20" height="20"
             className="icon icon-ink2" alt="뒤로가기" />
         </button>
         <span className="hdr-title">판별 결과</span>
@@ -119,7 +120,7 @@ export default function ResultPage() {
         {warning && (
           <div className="alert-card alert-warn">
             <div className="alert-title">
-              <img src="/src/assets/icons/alert.svg" width="13" height="13"
+              <img src={alertIcon} width="13" height="13"
                 className="icon icon-amber" alt="" />
               주의사항
             </div>

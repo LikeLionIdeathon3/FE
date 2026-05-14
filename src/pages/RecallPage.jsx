@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
+import { arrowLeftIcon, shieldIcon, alertIcon } from '../assets/icons';
 
 const recentRecalls = [
   { name: '△△ 해외직구 오메가3', sub: '해외직구 위해식품 · I-0060', badge: 'b-danger', label: '위해' },
@@ -15,7 +16,7 @@ export default function RecallPage() {
       {/* 헤더 */}
       <div className="app-hdr">
         <button className="hdr-back" onClick={() => navigate('/home')}>
-          <img src="/src/assets/icons/arrow-left.svg" width="20" height="20"
+          <img src={arrowLeftIcon} width="20" height="20"
             className="icon icon-ink2" alt="뒤로가기" />
         </button>
         <span className="hdr-title">회수·위해 정보</span>
@@ -27,7 +28,7 @@ export default function RecallPage() {
         {/* 주요 회수 카드 */}
         <div className="recall-card">
           <div className="recall-title">
-            <img src="/src/assets/icons/shield.svg" width="15" height="15"
+            <img src={shieldIcon} width="15" height="15"
               className="icon icon-red" alt="" />
             회수 조치 제품
           </div>
@@ -67,7 +68,7 @@ export default function RecallPage() {
 
         <div className="alert-card alert-warn">
           <div className="alert-title">
-            <img src="/src/assets/icons/alert.svg" width="13" height="13"
+            <img src={alertIcon} width="13" height="13"
               className="icon icon-amber" alt="" />
             안내
           </div>

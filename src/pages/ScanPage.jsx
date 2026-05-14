@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
+import { arrowLeftIcon, cameraIcon, flagIcon, alertIcon } from '../assets/icons';
 
 const ingredients = [
   {
@@ -24,7 +25,7 @@ export default function ScanPage() {
       {/* 헤더 */}
       <div className="app-hdr">
         <button className="hdr-back" onClick={() => navigate('/home')}>
-          <img src="/src/assets/icons/arrow-left.svg" width="20" height="20"
+          <img src={arrowLeftIcon} width="20" height="20"
             className="icon icon-ink2" alt="뒤로가기" />
         </button>
         <span className="hdr-title">성분 분석 결과</span>
@@ -35,7 +36,7 @@ export default function ScanPage() {
       <div className="app-body">
         {/* 카메라 뷰파인더 목업 */}
         <div className="camera-view">
-          <img src="/src/assets/icons/camera.svg" width="36" height="36"
+          <img src={cameraIcon} width="36" height="36"
             className="icon icon-teal" alt="" style={{ zIndex: 1, opacity: 0.7 }} />
           <p>성분표를 카메라로 촬영하면<br />자동으로 분석됩니다</p>
         </div>
@@ -73,7 +74,7 @@ export default function ScanPage() {
         {/* 미등록 성분 */}
         <div className="flag">
           <div className="flag-title">
-            <img src="/src/assets/icons/flag.svg" width="13" height="13"
+            <img src={flagIcon} width="13" height="13"
               className="icon icon-red" alt="" />
             미등록 성분 감지됨
           </div>
@@ -87,7 +88,7 @@ export default function ScanPage() {
         {/* 권장량 초과 경고 */}
         <div className="alert-card alert-warn">
           <div className="alert-title">
-            <img src="/src/assets/icons/alert.svg" width="13" height="13"
+            <img src={alertIcon} width="13" height="13"
               className="icon icon-amber" alt="" />
             권장량 초과 성분 있음
           </div>

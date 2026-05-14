@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
+import { arrowLeftIcon, barcodeIcon } from '../assets/icons';
 
 export default function BarcodePage() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function BarcodePage() {
       {/* 헤더 */}
       <div className="app-hdr">
         <button className="hdr-back" onClick={() => navigate('/home')}>
-          <img src="/src/assets/icons/arrow-left.svg" width="20" height="20"
+          <img src={arrowLeftIcon} width="20" height="20"
             className="icon icon-ink2" alt="뒤로가기" />
         </button>
         <span className="hdr-title">바코드 스캔</span>
@@ -46,7 +47,7 @@ export default function BarcodePage() {
             animation: 'scanLine 1.8s ease-in-out infinite',
           }} />
 
-          <img src="/src/assets/icons/barcode.svg" width="48" height="48"
+          <img src={barcodeIcon} width="48" height="48"
             className="icon icon-teal" alt="" style={{ zIndex: 1, opacity: 0.5 }} />
         </div>
 

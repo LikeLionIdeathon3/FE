@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
+import { homeIcon, searchIcon, bellIcon, userIcon } from '../assets/icons';
 
 const tabs = [
-  { label: '홈',     path: '/home',    icon: '/src/assets/icons/home.svg' },
-  { label: '검색',  path: '/home',    icon: '/src/assets/icons/search.svg' },
-  { label: '알림',  path: '/recall',  icon: '/src/assets/icons/bell.svg' },
-  { label: '내 정보', path: '/profile', icon: '/src/assets/icons/user.svg' },
+  { label: '홈',      path: '/home',    icon: homeIcon },
+  { label: '검색',   path: '/home',    icon: searchIcon },
+  { label: '알림',   path: '/recall',  icon: bellIcon },
+  { label: '내 정보', path: '/profile', icon: userIcon },
 ];
 
 export default function TabBar({ active }) {

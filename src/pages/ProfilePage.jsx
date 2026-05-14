@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/Logo';
 import TabBar from '../components/TabBar';
+import { bellIcon } from '../assets/icons';
 
 const STORAGE_KEY = 'genupill_profile';
 
@@ -44,7 +45,7 @@ export default function ProfilePage() {
         <Logo />
         <div className="hdr-icons">
           <div className="hdr-icon" onClick={() => navigate('/recall')}>
-            <img src="/src/assets/icons/bell.svg" width="15" height="15"
+            <img src={bellIcon} width="15" height="15"
               className="icon icon-gray" alt="알림" />
           </div>
         </div>
