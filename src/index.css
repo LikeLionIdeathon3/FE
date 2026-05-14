@@ -399,66 +399,28 @@ svg.ic {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 56px 28px 40px;
+  justify-content: center;
+  padding: 40px 28px;
   text-align: center;
-}
-.landing-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--teal-light);
-  color: var(--teal-dark);
-  font-size: 12px;
-  font-weight: 500;
-  padding: 5px 14px;
-  border-radius: 20px;
-  margin-top: 36px;
-  margin-bottom: 20px;
-  border: 1px solid #99F6E4;
+  gap: 0;
 }
 .landing h1 {
   font-family: 'Syne', sans-serif;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 800;
   color: var(--ink);
-  line-height: 1.2;
-  margin-bottom: 14px;
+  line-height: 1.25;
+  margin-top: 28px;
+  margin-bottom: 10px;
   letter-spacing: -0.5px;
 }
-.landing h1 em { color: var(--teal); font-style: normal; }
 .landing-desc {
   font-size: 14px;
   color: var(--ink3);
   line-height: 1.7;
-  margin-bottom: 36px;
-  max-width: 300px;
+  margin-bottom: 32px;
 }
-.landing-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-.feat-pill {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 6px 14px;
-  font-size: 12px;
-  color: var(--ink2);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-.feat-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--teal);
-  flex-shrink: 0;
-}
+
 .landing-cta {
   background: var(--teal);
   color: white;
