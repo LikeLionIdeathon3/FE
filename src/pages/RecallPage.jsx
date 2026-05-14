@@ -3,9 +3,10 @@ import TabBar from '../components/TabBar';
 import { arrowLeftIcon, shieldIcon, alertIcon } from '../assets/icons';
 
 const recentRecalls = [
-  { name: '△△ 해외직구 오메가3', sub: '해외직구 위해식품 · I-0060', badge: 'b-danger', label: '위해' },
-  { name: '○○ 다이어트 부스터', sub: '식품 부적합 · I-0120', badge: 'b-warn', label: '부적합' },
-  { name: '□□ 프리미엄 아연', sub: '회수판매중지 · I-0030', badge: 'b-danger', label: '회수' },
+  { name: '프리미엄 멀티비타민 포르테', sub: '위해 성분 검출 · 회수판매중지 · R-2504-031', badge: 'b-danger', label: '회수' },
+  { name: '슬림케어 다이어트 부스터', sub: '미승인 원료 함유 · 식품 부적합 · R-2503-018', badge: 'b-warn', label: '부적합' },
+  { name: '해양심층수 미네랄 워터', sub: '중금속 기준 초과 · 위해식품 · R-2502-009', badge: 'b-danger', label: '위해' },
+  { name: '관절 영양 글루코사민 플러스', sub: '함량 기준 미달 · 기준규격 위반 · R-2501-044', badge: 'b-warn', label: '부적합' },
 ];
 
 export default function RecallPage() {
@@ -32,7 +33,8 @@ export default function RecallPage() {
               className="icon icon-red" alt="" />
             회수 조치 제품
           </div>
-          <div className="prod-name">□□ 멀티비타민 골드</div>
+          <div className="prod-name">프리미엄 멀티비타민 포르테</div>
+          <div style={{ fontSize: 10, color: '#912018', marginBottom: 8 }}>글로벌뉴트리</div>
           <hr className="info-divider" style={{ borderColor: '#FECDCA', margin: '9px 0' }} />
           <div className="info-row">
             <span className="info-key">회수 사유</span>
@@ -43,13 +45,17 @@ export default function RecallPage() {
             <span className="info-val-danger">2025.04.12</span>
           </div>
           <div className="info-row">
+            <span className="info-key">회수 번호</span>
+            <span className="info-val">R-2504-031</span>
+          </div>
+          <div className="info-row">
             <span className="info-key">처리 기관</span>
             <span className="info-val">식품의약품안전처</span>
           </div>
           <p style={{ fontSize: 10, color: '#912018', lineHeight: 1.6, marginTop: 9, fontWeight: 700 }}>
             이 제품은 위해 성분이 발견되어 회수 조치된 제품입니다. 즉시 섭취를 중단하세요.
           </p>
-          <div className="source-tag">출처: 식약처 회수판매중지 DB (I-0030)</div>
+          <div className="source-tag">출처: 식약처 회수판매중지 DB · R-2504-031</div>
         </div>
 
         {/* 최근 회수 목록 */}
