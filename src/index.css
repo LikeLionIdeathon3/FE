@@ -116,6 +116,9 @@ body {
   gap: 11px;
   overflow-y: auto;
 }
+.app-body > * {
+  flex-shrink: 0;
+}
 
 /* ── Search Bar ── */
 .search-bar {
