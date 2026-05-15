@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TabBar from '../components/TabBar';
 import { arrowLeftIcon, cameraIcon, flagIcon, alertIcon } from '../assets/icons';
@@ -19,6 +20,15 @@ const ingredients = [
 
 export default function ScanPage() {
   const navigate = useNavigate();
+  const inputRef = useRef(null);
+  const [preview, setPreview] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    setPreview(url);
+  };
 
   return (
     <div className="screen">
@@ -34,13 +44,38 @@ export default function ScanPage() {
 
       {/* 바디 */}
       <div className="app-body">
-        {/* 카메라 뷰파인더 목업 */}
-        <div className="camera-view">
-          <div className="camera-inner">
-            <img src={cameraIcon} width="36" height="36"
-              className="icon icon-teal" alt="" />
-            <p>성분표를 카메라로 촬영하면<br />자동으로 분석됩니다</p>
-          </div>
+        {/* 카메라 뷰파인더 */}
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          capture="environment"
+          style={{ display: 'none' }}
+          onChange={handleFileChange}
+        />
+        <div
+          className="camera-view"
+          onClick={() => inputRef.current?.click()}
+          style={{ cursor: 'pointer' }}
+        >
+          {preview ? (
+            <img
+              src={preview}
+              alt="촬영된 이미지"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                borderRadius: 16,
+              }}
+            />
+          ) : (
+            <div className="camera-inner">
+              <img src={cameraIcon} width="36" height="36"
+                className="icon icon-teal" alt="" />
+              <p>성분표를 카메라로 촬영하면<br />자동으로 분석됩니다</p>
+            </div>
+          )}
         </div>
 
         {/* 성분 분석 결과 */}
