@@ -568,7 +568,7 @@ svg.ic {
 .camera-view {
   background: #1a1a2e;
   border-radius: 16px;
-  height: 160px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -578,7 +578,7 @@ svg.ic {
 .camera-view::before {
   content: '';
   position: absolute;
-  inset: 12px;
+  inset: 10px;
   border: 2px solid rgba(13,148,136,0.6);
   border-radius: 8px;
   z-index: 0;
@@ -587,9 +587,10 @@ svg.ic {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
+  gap: 6px;
   position: relative;
   z-index: 1;
-  padding: 20px;
+  padding: 14px;
 }
 .camera-view p { font-size: 11px; color: rgba(255,255,255,0.6); text-align: center; }
