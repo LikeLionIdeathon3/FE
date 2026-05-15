@@ -78,8 +78,8 @@ export default function ScanPage() {
           )}
         </div>
 
-        {/* 성분 분석 결과 */}
-        <div className="info-card">
+        {/* 성분 분석 결과 — 촬영 후에만 표시 */}
+        {preview && <div className="info-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 9 }}>
             <span style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>인식된 성분 · 3개</span>
             <span className="badge b-gray">뉴트리원 종합비타민</span>
@@ -108,33 +108,37 @@ export default function ScanPage() {
           ))}
         </div>
 
-        {/* 미등록 성분 */}
-        <div className="flag">
-          <div className="flag-title">
-            <img src={flagIcon} width="13" height="13"
-              className="icon icon-red" alt="" />
-            미등록 성분 감지됨
+        {/* 미등록 성분 — 촬영 후에만 표시 */}
+        {preview && (
+          <div className="flag">
+            <div className="flag-title">
+              <img src={flagIcon} width="13" height="13"
+                className="icon icon-red" alt="" />
+              미등록 성분 감지됨
+            </div>
+            <div className="flag-body">
+              <strong>히알루론산 추출물</strong>은 국내 식약처에 등록되지 않은 성분입니다.
+              식약처 가이드라인에 따르면 섭취에 주의가 필요합니다.
+            </div>
+            <div className="source-tag" style={{ marginTop: 6 }}>출처: 식약처 기능성 원료 DB</div>
           </div>
-          <div className="flag-body">
-            <strong>히알루론산 추출물</strong>은 국내 식약처에 등록되지 않은 성분입니다.
-            식약처 가이드라인에 따르면 섭취에 주의가 필요합니다.
-          </div>
-          <div className="source-tag" style={{ marginTop: 6 }}>출처: 식약처 기능성 원료 DB</div>
-        </div>
+        )}
 
-        {/* 권장량 초과 경고 */}
-        <div className="alert-card alert-warn">
-          <div className="alert-title">
-            <img src={alertIcon} width="13" height="13"
-              className="icon icon-amber" alt="" />
-            권장량 초과 성분 있음
+        {/* 권장량 초과 경고 — 촬영 후에만 표시 */}
+        {preview && (
+          <div className="alert-card alert-warn">
+            <div className="alert-title">
+              <img src={alertIcon} width="13" height="13"
+                className="icon icon-amber" alt="" />
+              권장량 초과 성분 있음
+            </div>
+            <div className="alert-body">
+              아연이 일일 권장량을 초과합니다. 식약처 가이드라인에 따르면 아연 과다 섭취 시
+              구리 흡수 방해 등 부작용이 있을 수 있습니다.
+            </div>
+            <div className="source-tag">출처: 식약처 기능성 원료 정보 API</div>
           </div>
-          <div className="alert-body">
-            아연이 일일 권장량을 초과합니다. 식약처 가이드라인에 따르면 아연 과다 섭취 시
-            구리 흡수 방해 등 부작용이 있을 수 있습니다.
-          </div>
-          <div className="source-tag">출처: 식약처 기능성 원료 정보 API</div>
-        </div>
+        )}
       </div>
 
       <TabBar active="검색" />
