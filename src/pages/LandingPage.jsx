@@ -7,6 +7,9 @@ export default function LandingPage() {
   return (
     <div className="landing">
       <Logo size="lg" />
+      <p style={{ fontSize: 14, color: '#0D9488', fontWeight: 500, marginTop: 8 }}>
+        My Own AI Shield
+      </p>
       <h1>내가 먹는 영양제,<br />진짜인가요?</h1>
       <p className="landing-desc">식약처 데이터로 즉시 판별합니다</p>
       <button className="landing-cta" onClick={() => navigate('/home')}>

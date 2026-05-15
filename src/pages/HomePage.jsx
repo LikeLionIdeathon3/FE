@@ -20,9 +20,14 @@ function toSub(data) {
 export default function HomePage() {
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [toast, setToast] = useState(null);
   const [recents, setRecents] = useState([]);
   const navigate = useNavigate();
+
+  const showToast = (message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  };
 
   useEffect(() => {
     setRecents(getRecentSearches());
@@ -31,7 +36,6 @@ export default function HomePage() {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!query.trim()) return;
-    setError(null);
     setLoading(true);
     try {
       const json = await searchProduct(query.trim());
@@ -39,7 +43,7 @@ export default function HomePage() {
       setRecents(updated);
       navigate('/result', { state: { data: json.data, query: query.trim() } });
     } catch (err) {
-      setError(err.message || '검색 중 오류가 발생했습니다.');
+      showToast(err.message || '검색 중 오류가 발생했습니다.');
     } finally {
       setLoading(false);
     }
@@ -92,13 +96,6 @@ export default function HomePage() {
           </div>
         </form>
 
-        {error && (
-          <div className="alert-card alert-danger">
-            <div className="alert-title">오류</div>
-            <div className="alert-body">{error}</div>
-          </div>
-        )}
-
         {/* 빠른 실행 */}
         <div className="sec">빠른 실행</div>
         <div className="g2">
@@ -149,6 +146,28 @@ export default function HomePage() {
       </div>
 
       <TabBar active="홈" />
+
+      {toast && (
+        <div style={{
+          position: 'fixed',
+          bottom: 88,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#B42318',
+          color: 'white',
+          padding: '10px 18px',
+          borderRadius: 10,
+          fontSize: 13,
+          fontWeight: 500,
+          zIndex: 100,
+          maxWidth: 320,
+          width: 'calc(100% - 48px)',
+          textAlign: 'center',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+        }}>
+          {toast}
+        </div>
+      )}
     </div>
   );
 }
