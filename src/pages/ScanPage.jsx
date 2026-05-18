@@ -106,7 +106,8 @@ export default function ScanPage() {
               <div className="prog-meta">{ing.amount}</div>
             </div>
           ))}
-        </div>
+          </div>
+        }
 
         {/* 미등록 성분 — 촬영 후에만 표시 */}
         {preview && (
